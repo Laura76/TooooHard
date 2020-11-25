@@ -201,6 +201,220 @@
  * 样例输出
  * 66.67%
  */
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        String historyStr=sc.next();
+//        String skyStr=sc.next();
+//        sc.close();
+//        char[] chars=historyStr.toCharArray();
+//        int len=chars.length;
+//        for(int i=0;i<len;i++){
+//            char c=chars[i];
+//            if((c>='0'&&c<='9')||(c>='A'&&c<='Z')||(c>='a'&&c<='z'))chars[i]='1';
+//            else chars[i]='0';
+//        }
+//        double temp=0;
+//        for(int i=0;i<len;i++){
+//            if(skyStr.charAt(i)==chars[i])temp++;
+//        }
+//        double res=temp/len*100.0;
+//        System.out.print(String.format("%.2f",res)+"%");
+//    }
+//}
+/**
+ * V先生有一天工作到很晚，回家的时候要穿过一条长l的笔直的街道，这条街道上有n个路灯。假设这条街起点为0，终点为l，第i个路灯坐标为ai。路灯发光能力以正数d来衡量，其中d表示路灯能够照亮的街道上的点与路灯的最远距离，所有路灯发光能力相同。为了让V先生看清回家的路，路灯必须照亮整条街道，又为了节省电力希望找到最小的d是多少？
+ * 输入
+ * 输入两行数据，第一行是两个整数：路灯数目n (1≤n≤1000)，街道长度l (1 ≤l≤109)。第二行有n个整数ai (0 ≤ ai≤ l)，表示路灯坐标，多个路灯可以在同一个点，也可以安放在终点位置。
+ * 输出
+ * 输出能够照亮整个街道的最小d，保留两位小数。
+ * 样例输入
+ * 7 15
+ *
+ * 15 5 3 7 9 14 0
+ * 样例输出
+ * 2.50
+ */
+//import java.util.Scanner;
+//import java.util.Arrays;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int len=sc.nextInt();
+//        int roadLen=sc.nextInt();
+//        int[] lights=new int[len];
+//        for(int i=0;i<len;i++){
+//            lights[i]=sc.nextInt();
+//        }
+//        sc.close();
+//        Arrays.sort(lights);
+//        double bigDis=0;
+//        for(int i=1;i<len;i++){
+//            if(lights[i]==lights[i-1])continue;
+//            else {
+//                if((lights[i]-lights[i-1])/2.0>bigDis)bigDis=(lights[i]-lights[i-1])/2.0;
+//            }
+//        }
+//        if(lights[0]-0>bigDis)bigDis=lights[0];
+//        if((roadLen-lights[len-1])>bigDis)bigDis=(roadLen-lights[len-1]);
+//        System.out.println(String.format("%.2f",bigDis));
+//    }
+//}
+
+/**
+ * 一个公交车经过n个站点，乘客从前门上车，从后门下车。
+ *
+ * 现在统计了在第i个站，下车人数a[i]，以及上车人数b[i]。
+ *
+ * 问公交车运行时候车上最多有多少乘客
+ * 输入
+ * 第一行读入一个整数n(1<=n<=100)，表示有n个站点
+ *
+ * 接下来n行，每行两个数值，分别表示在第i个站点下车人数和上车人数
+ * 输出
+ * 每组输出车上最多的乘客数目
+ * 样例输入
+ * 4
+ *
+ * 0 3
+ *
+ * 2 5
+ *
+ * 4 2
+ *
+ * 4 0
+ * 样例输出
+ * 6
+ */
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        int res=0;
+//        int max=0;
+//        for(int i=0;i<n;i++){
+//            res-=sc.nextInt();
+//            res+=sc.nextInt();
+//            if(res>max)max=res;
+//        }
+//        System.out.print(max);
+//    }
+//}
+
+/**
+ * 果园里有堆苹果，N（1＜N＜9）只熊来分。第一只熊把这堆苹果平均分为N份，多了一个，它把多的一个扔了，拿走了一份。第二只熊把剩下的苹果又平均分成N份，又多了一个，它同样把多的一个扔了，拿走了一份，第三、第四直到第N只熊都是这么做的，问果园里原来最少有多少个苹果？
+ * 输入
+ * 输入1个整数，表示熊的个数。它的值大于1并且小于9。
+ * 输出
+ * 为1个数字，表示果园里原来有的苹果个数。
+ * 样例输入
+ * 5
+ * 样例输出
+ * 3121
+ */
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        sc.close();
+//        for(int i=0;i<n;i++){
+//
+//        }
+//    }
+//}
+
+/**
+ * 果园里有堆苹果，N（1＜N＜9）只熊来分。第一只熊把这堆苹果平均分为N份，多了一个，它把多的一个扔了，拿走了一份。第二只熊把剩下的苹果又平均分成N份，又多了一个，它同样把多的一个扔了，拿走了一份，第三、第四直到第N只熊都是这么做的，问果园里原来最少有多少个苹果？
+ * 输入
+ * 输入1个整数，表示熊的个数。它的值大于1并且小于9。
+ * 输出
+ * 为1个数字，表示果园里原来有的苹果个数。
+ * 样例输入
+ * 5
+ * 样例输出
+ * 3121
+ */
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] aargs){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        int x=1;
+//        while(true){
+//            int left=(n*x+1)%(n-1);
+//            if(left==0){
+//                int nextX=(n*x+1)/(n-1);
+//                int i=0;
+//                for(;i<n-2;i++){
+//                    if((n*nextX+1)%(n-1)!=0)break;
+//                    else nextX=(n*nextX+1)/(n-1);
+//                }
+//                if(i==n-2){
+//                    System.out.print(n*nextX+1);
+//                    return;
+//                }
+//            }
+//            x++;
+//        }
+//    }
+//}
+
+/**
+ * 在经济、科技日益发达的今天，人们对时间的把握越来越严格，对于一个一定影响力的公司的高管来说，他可能要将自己的行程提前安排到下个月。对于普通人来说，他也可能将几天之后的安排已经提前做好。
+ *
+ * 请设计一个程序计算出今天距离未来的某一天还剩多少天。
+ *
+ * 假设今天是2015年10月18日。
+ * 输入
+ * 输入一个日期格式为yyyy-MM-dd，不考虑日期是否小于今天。
+ * 输出
+ * 输出一个数字表示今天（2015年10月18日）距离该日期还剩多少天
+ * 样例输入
+ * 2015-10-19
+ * 样例输出
+ * 1
+ */
+
+import java.util.Scanner;
+import java.util.Calendar;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String date1=sc.next();
+        String[] temp=date1.split("-");
+        Calendar c1=Calendar.getInstance();
+        c1.set(Integer.valueOf(temp[0]),Integer.valueOf(temp[1]),Integer.valueOf(temp[2]),0,0,0);
+        Calendar c2=Calendar.getInstance();
+        c2.set(2015,10,18,0,0,0);
+        long mills=Math.abs(c1.getTimeInMillis()-c2.getTimeInMillis());
+        System.out.print(Math.round(mills/(24.0*60*60*1000)));
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
