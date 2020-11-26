@@ -364,25 +364,82 @@
  * 1
  */
 
+//import java.util.Scanner;
+//import java.util.Calendar;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        String date1=sc.next();
+//        String[] temp=date1.split("-");
+//        Calendar c1=Calendar.getInstance();
+//        c1.set(Integer.valueOf(temp[0]),Integer.valueOf(temp[1]),Integer.valueOf(temp[2]),0,0,0);
+//        Calendar c2=Calendar.getInstance();
+//        c2.set(2015,10,18,0,0,0);
+//        long mills=Math.abs(c1.getTimeInMillis()-c2.getTimeInMillis());
+//        System.out.print(Math.round(mills/(24.0*60*60*1000)));
+//
+//    }
+//}
+
+/**
+ * #9
+ * 城市E的马路上有很多路灯，每两个相邻路灯之间的间隔都是1公里。小赛是城市E的领导，为了使E城市更快更好的发展，需要在城市E的一段长度为M的主干道上的一些区域建地铁。这些区域要是建了地铁，就需要挪走相应的路灯。可以把长度为M的主干道看成一个数轴，一端在数轴0的位置，另一端在M的位置；数轴上的每个整数点都有一个路灯。要建地铁的这些区域可以用它们在数轴上的起始点和终止点表示，已知任一区域的起始点和终止点的坐标都是整数，区域之间可能有重合的部分。现在要把这些区域中的路灯（包括区域端点处的两个路灯）移走。你能帮助小赛计算一下，将这些路灯移走后，马路上还有多少路灯？
+ * 输入
+ * 输入文件的第一行有两个整数M（1 <= M <= 10000）和 N（1 <= N <= 100），M代表马路的长度，N代表区域的数目，M和N之间用一个空格隔开。接下来的N行每行包含两个不同的整数，用一个空格隔开，表示一个区域的起始点和终止点的坐标。
+ *
+ * 所有输入都为整数。且M和N的范围为上面提示范围。
+ * 输出
+ * 输出文件包括一行，这一行只包含一个整数，表示马路上剩余路灯的数目。
+ * 样例输入
+ * 500 3
+ *  100 200
+ *  150 300
+ *  360 361
+ *  样例输出
+ * 298
+ */
+
 import java.util.Scanner;
-import java.util.Calendar;
+import java.util.Arrays;
+import java.util.Comparator;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        String date1=sc.next();
-        String[] temp=date1.split("-");
-        Calendar c1=Calendar.getInstance();
-        c1.set(Integer.valueOf(temp[0]),Integer.valueOf(temp[1]),Integer.valueOf(temp[2]),0,0,0);
-        Calendar c2=Calendar.getInstance();
-        c2.set(2015,10,18,0,0,0);
-        long mills=Math.abs(c1.getTimeInMillis()-c2.getTimeInMillis());
-        System.out.print(Math.round(mills/(24.0*60*60*1000)));
-
+        int M=sc.nextInt();
+        int N=sc.nextInt();
+        int[][] areas=new int[N][2];
+        for(int i=0;i<N;i++){
+            areas[i][0]=sc.nextInt();
+            areas[i][1]=sc.nextInt();
+        }
+        sc.close();
+        Arrays.sort(areas,new Comparator<int[]>(){
+            @Override
+            public int compare(int[] a,int[] b){
+                if(a[0]==b[0])return a[1]-b[1];
+                else return a[0]-b[0];
+            }
+        });
+        int start=areas[0][0];
+        int end=areas[0][1];
+        int res=start-0;
+        int i=1;
+        while(i<N){
+            for(;i<N;i++){
+                if(areas[i][0]<=end){
+                    if(areas[i][1]>end)end=areas[i][1];
+                }else break;
+            }
+            if(i>=N)break;
+            res+=areas[i][0]-1-end;
+            start=areas[i][0];
+            end=areas[i][1];
+            i++;
+        }
+        res+=M-end;
+        System.out.print(res);
     }
 }
-
-
-
 
 
 
