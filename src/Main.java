@@ -47,7 +47,7 @@
 
 
 /**
- * #2
+ * #2股神
  * 有股神吗？
  *
  * 有，小赛就是！
@@ -97,7 +97,7 @@
 //    }
 //}
 /**
- * #3
+ * #3翻转数组
  * 给定一个长度为n的整数数组a，元素均不相同，问数组是否存在这样一个片段，只将该片段翻转就可以使整个数组升序排列。其中数组片段[l,r]表示序列a[l], a[l+1], ..., a[r]。原始数组为
  *
  * a[1], a[2], ..., a[l-2], a[l-1], a[l], a[l+1], ..., a[r-1], a[r], a[r+1], a[r+2], ..., a[n-1], a[n]，
@@ -186,7 +186,7 @@
 //}
 
 /**
- * #4
+ * #4约德尔测试
  * 兰博和提莫闲聊之后，回归到了他们的正题，约德尔人的未来。
  *
  * 说起约德尔人的未来，黑默丁格曾经提出了一个约德尔测试，将约德尔人的历史的每个阶段都用一个字符表达出来。(包括可写字符,不包括空格。)。然后将这个字符串转化为一个01串。转化规则是如果这个字符如果是字母或者数字，这个字符变为1,其它变为0。然后将这个01串和黑默丁格观测星空得到的01串做比较，得到一个相似率。相似率越高,则约德尔的未来越光明。
@@ -228,7 +228,7 @@
 //    }
 //}
 /**
- * #5
+ * #5路灯
  * V先生有一天工作到很晚，回家的时候要穿过一条长l的笔直的街道，这条街道上有n个路灯。假设这条街起点为0，终点为l，第i个路灯坐标为ai。路灯发光能力以正数d来衡量，其中d表示路灯能够照亮的街道上的点与路灯的最远距离，所有路灯发光能力相同。为了让V先生看清回家的路，路灯必须照亮整条街道，又为了节省电力希望找到最小的d是多少？
  * 输入
  * 输入两行数据，第一行是两个整数：路灯数目n (1≤n≤1000)，街道长度l (1 ≤l≤109)。第二行有n个整数ai (0 ≤ ai≤ l)，表示路灯坐标，多个路灯可以在同一个点，也可以安放在终点位置。
@@ -268,7 +268,7 @@
 //}
 
 /**
- * #6
+ * #6公交车乘客
  * 一个公交车经过n个站点，乘客从前门上车，从后门下车。
  *
  * 现在统计了在第i个站，下车人数a[i]，以及上车人数b[i]。
@@ -311,7 +311,7 @@
 
 
 /**
- * #7
+ * #7分苹果
  * 果园里有堆苹果，N（1＜N＜9）只熊来分。第一只熊把这堆苹果平均分为N份，多了一个，它把多的一个扔了，拿走了一份。第二只熊把剩下的苹果又平均分成N份，又多了一个，它同样把多的一个扔了，拿走了一份，第三、第四直到第N只熊都是这么做的，问果园里原来最少有多少个苹果？
  * 输入
  * 输入1个整数，表示熊的个数。它的值大于1并且小于9。
@@ -348,7 +348,7 @@
 //}
 
 /**
- * #8
+ * #8日期倒计时
  * 在经济、科技日益发达的今天，人们对时间的把握越来越严格，对于一个一定影响力的公司的高管来说，他可能要将自己的行程提前安排到下个月。对于普通人来说，他也可能将几天之后的安排已经提前做好。
  *
  * 请设计一个程序计算出今天距离未来的某一天还剩多少天。
@@ -382,7 +382,7 @@
 //}
 
 /**
- * #9
+ * #9马路上的路灯
  * 城市E的马路上有很多路灯，每两个相邻路灯之间的间隔都是1公里。小赛是城市E的领导，为了使E城市更快更好的发展，需要在城市E的一段长度为M的主干道上的一些区域建地铁。这些区域要是建了地铁，就需要挪走相应的路灯。可以把长度为M的主干道看成一个数轴，一端在数轴0的位置，另一端在M的位置；数轴上的每个整数点都有一个路灯。要建地铁的这些区域可以用它们在数轴上的起始点和终止点表示，已知任一区域的起始点和终止点的坐标都是整数，区域之间可能有重合的部分。现在要把这些区域中的路灯（包括区域端点处的两个路灯）移走。你能帮助小赛计算一下，将这些路灯移走后，马路上还有多少路灯？
  * 输入
  * 输入文件的第一行有两个整数M（1 <= M <= 10000）和 N（1 <= N <= 100），M代表马路的长度，N代表区域的数目，M和N之间用一个空格隔开。接下来的N行每行包含两个不同的整数，用一个空格隔开，表示一个区域的起始点和终止点的坐标。
@@ -399,61 +399,242 @@
  * 298
  */
 
-import java.util.Scanner;
-import java.util.Arrays;
-import java.util.Comparator;
-public class Main{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int M=sc.nextInt();
-        int N=sc.nextInt();
-        int[][] areas=new int[N][2];
-        for(int i=0;i<N;i++){
-            areas[i][0]=sc.nextInt();
-            areas[i][1]=sc.nextInt();
-        }
-        sc.close();
-        Arrays.sort(areas,new Comparator<int[]>(){
-            @Override
-            public int compare(int[] a,int[] b){
-                if(a[0]==b[0])return a[1]-b[1];
-                else return a[0]-b[0];
-            }
-        });
-        int start=areas[0][0];
-        int end=areas[0][1];
-        int res=start-0;
-        int i=1;
-        while(i<N){
-            for(;i<N;i++){
-                if(areas[i][0]<=end){
-                    if(areas[i][1]>end)end=areas[i][1];
-                }else break;
-            }
-            if(i>=N)break;
-            res+=areas[i][0]-1-end;
-            start=areas[i][0];
-            end=areas[i][1];
-            i++;
-        }
-        res+=M-end;
-        System.out.print(res);
-    }
-}
+//import java.util.Scanner;
+//import java.util.Arrays;
+//import java.util.Comparator;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int M=sc.nextInt();
+//        int N=sc.nextInt();
+//        int[][] areas=new int[N][2];
+//        for(int i=0;i<N;i++){
+//            areas[i][0]=sc.nextInt();
+//            areas[i][1]=sc.nextInt();
+//        }
+//        sc.close();
+//        Arrays.sort(areas,new Comparator<int[]>(){
+//            @Override
+//            public int compare(int[] a,int[] b){
+//                if(a[0]==b[0])return a[1]-b[1];
+//                else return a[0]-b[0];
+//            }
+//        });
+//        int start=areas[0][0];
+//        int end=areas[0][1];
+//        int res=start-0;
+//        int i=1;
+//        while(i<N){
+//            for(;i<N;i++){
+//                if(areas[i][0]<=end){
+//                    if(areas[i][1]>end)end=areas[i][1];
+//                }else break;
+//            }
+//            if(i>=N)break;
+//            res+=areas[i][0]-1-end;
+//            start=areas[i][0];
+//            end=areas[i][1];
+//            i++;
+//        }
+//        res+=M-end;
+//        System.out.print(res);
+//    }
+//}
+
+/**
+ * #10比大小
+ * 现在有"abcdefghijkl”12个字符，将其所有的排列中按字典序排列，给出任意一种排列，说出这个排列在所有的排列中是第几小的？
+ *
+ 输入
+ 第一行有一个整数n（0＜n＜=10000）;
+
+ 随后有n行，每行是一个排列；
+ 输出
+ 输出一个整数m，占一行，m表示排列是第几位；
+ 样例输入
+ 3
+
+ abcdefghijkl
+
+ hgebkflacdji
+
+ gfkedhjblcia
+ 样例输出
+ 1
+
+ 302715242
+
+ 260726926
+ */
+
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        String[] strs=new String[n];
+//        for(int i=0;i<n;i++){
+//            strs[i]=sc.next();
+//        }
+//        sc.close();
+//        for(int i=0;i<n;i++)System.out.println(getNumber(strs[i]));
+//    }
+//    public static int getNumber(String str){
+//        int res=0;
+//        char[] basic=new char[]{'a','b','c','d','e','f','g','h','i','j','k','l'};
+//        int start=(1*2*3*4*5*6*7*8*9*10*11*12);
+//        int divide=12;
+//        int len=str.length();
+//        for(int i=0;i<len;i++){
+//            start/=divide;
+//            char c=str.charAt(i);
+//            int sum=0;
+//            for(int j=0;j<len;j++){
+//                if(basic[j]!='-'){
+//                    if(basic[j]<c)
+//                        sum++;
+//                    else if(basic[j]==c){
+//                        basic[j]='-';
+//                        break;
+//                    }
+//                }
+//            }
+//            res+=(sum*start);
+//            divide--;
+//        }
+//        return res+1;
+//    }
+//}
+
+/**
+ * #11约会
+ * Bob和Alice有个约会，一大早Bob就从点(0,0)出发，前往约会地点(a,b)。Bob没有一点方向感，因此他每次都随机的向上下左右四个方向走一步。简而言之，如果Bob当前在(x,y)，那么下一步他有可能到达(x+1,y),
+ * (x-1,y),
+ * (x,y+1),
+ * (x,y-1)。很显然，当他到达目的地的时候，已经很晚了，Alice早已离去。第二天，Alice质问Bob为什么放她鸽子，Bob说他昨天花了s步到达了约会地点。Alice怀疑Bob是不是说谎了。你能否帮她验证一下？
+ * 输入
+ * 输入三个整数a,b,s (-109
+ * 输出
+ * 输出“Yes”，如果Bob可能用s步到达(a,b)；否则输出“No”，不需要输出引号。
+ * 样例输入
+ * 5 5 11
+ * 样例输出
+ * No
+ */
+
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int a=sc.nextInt();
+//        int b=sc.nextInt();
+//        int s=sc.nextInt();
+//        sc.close();
+//        int minRoad=Math.abs(a)+Math.abs(b);
+//        if(s<minRoad||(s-minRoad)%2==1)System.out.print("No");
+//        else System.out.print("Yes");
+//    }
+//}
+
+/**
+ * #12研究生考试
+ */
+
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        int[][] grades=new int[n][4];
+//        for(int i=0;i<n;i++){
+//            for(int j=0;j<4;j++){
+//                grades[i][j]=sc.nextInt();
+//            }
+//        }
+//        for(int i=0;i<n;i++){
+//            int sum=0;
+//            for(int j=0;j<4;j++)sum+=grades[i][j];
+//            if(grades[i][0]<60||grades[i][1]<60||grades[i][2]<90||grades[i][3]<90||sum<310){
+//                System.out.println("Fail");
+//            }else{
+//                if(sum>=350)System.out.println("Gongfei");
+//                else System.out.println("Zifei");
+//            }
+//        }
+//    }
+//}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * #13文艺青年爱文学
+ * 小赛是一名文艺的程序员，他十分热爱文学。乘车去公司应聘的路上，小赛又在构想自己的诗歌了——
+ *
+ *
+ *
+ * "啊！小赛啊小赛！帅啊很帅可帅了！
+ *
+ *  啊！小赛啊小赛！棒啊很棒可棒了！
+ *
+ *  啊！小赛啊小赛！啊啊啊啊啊啊啊！"
+ *
+ *
+ *
+ * 尽管小赛的诗歌——额……有那么一点——（啊啊别拦我——让我掐死这只小赛！）……
+ *
+ * 但是，小赛自己还是深深陶醉其中的。
+ *
+ *
+ *
+ * 小赛现在想要创作一首恰好为一定字数（共有n个能满足要求的字数，达到任一皆可）的新诗歌……
+ *
+ * 他会构想m种长度的短句（如上面那首“诗歌”，有长度为1和7的短句），构想每种长度的短句所耗费的时间是相同的。
+ *
+ * 现在让你帮忙算下，小赛最少需要多少时间，才能达成自己的目标呢？如果没有办法实现，请输出"It is not true!"（没有引号）。
+ */
+//
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        int[] a=new int[n];
+//        int max=0;
+//        for(int i=0;i<n;i++){
+//            a[i]=sc.nextInt();
+//            if(a[i]>max)max=a[i];
+//        }
+//        n=sc.nextInt();
+//        int[] b=new int[n];
+//        int[] c=new int[n];
+//        for(int i=0;i<n;i++){
+//            b[i]=sc.nextInt();
+//            c[i]=sc.nextInt();
+//        }
+//        sc.close();
+//        int[] dp=new int[max+1];
+//        dp[0]=0;
+//        for(int i=1;i<max+1;i++){
+//            int min=0;
+//            for(int j=0;j<n;j++){
+//                if(i-b[j]<0||dp[i-b[j]]==-1)continue;
+//                else{
+//                    if(min==0)min=dp[i-b[j]]+c[j];
+//                    else if(dp[i-b[j]]+c[j]<min)min=dp[i-b[j]]+c[j];
+//                }
+//            }
+//            if(min==0)dp[i]=-1;
+//            else dp[i]=min;
+//        }
+//        int minTime=-1;
+//        for(int i=0;i<a.length;i++){
+//            if(dp[a[i]]==-1)continue;
+//            if(minTime==-1)minTime=dp[a[i]];
+//            else if(dp[a[i]]<minTime)minTime=dp[a[i]];
+//        }
+//        if(minTime!=-1)System.out.println(minTime);
+//        else System.out.println("It is not true!");
+//    }
+//}
 
 
 
