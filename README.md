@@ -16,3 +16,13 @@ Arrays.sort(temp,new Comparator<int[]>(){
     }
 })
 ```
+- 求最大公因数  
+使用辗转相除法  
+```
+public static long getNumber(long a,long b) {
+  if(a<b)return getNumber(b,a);
+  long c=a%b;
+  if(c==0)return b;
+  else return getNumber(b,c);
+ }
+```

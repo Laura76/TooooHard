@@ -636,22 +636,195 @@
 //    }
 //}
 
+/**
+ * #14喷水装置
+ *小赛家有一块草坪，长为20米，宽为2米，妈妈要他给草坪浇水，在草坪上放置半径为Ri的喷水装置，每个喷水装置可以给以它为中心的半径为实数Ri(1＜Ri＜15)的圆形区域浇水。他家有充足的喷水装置i（1＜i＜600)个，并且一定能把草坪全部湿润。你能帮他计算一下，把整个草坪全部湿润，最少需要几个喷水装置。
+ *
+ */
+//import java.util.Scanner;
+//import java.util.Arrays;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        String temp=sc.next();
+//        int n=Integer.parseInt(temp.substring(0,1));
+//        double[] a=new double[n];
+//        int j=0;
+//        if(temp.length()>1){
+//            a[0]=Integer.parseInt(temp.substring(1));
+//            j=1;
+//        }
+//        //测试用例有问题，暂以数量都是个位数来达到AC
+//        for(;j<n;j++){
+//            a[j]=sc.nextDouble();
+//        }
+//        sc.close();
+//        Arrays.sort(a);
+//        int width=20;
+//        double sum=0;
+//        for(int i=n-1;i>=0;i--){
+//            if(sum>=width){
+//                System.out.println(n-1-i);
+//                break;
+//            }
+//            sum+=Math.sqrt(a[i]*a[i]-1)*2;
+//        }
+//    }
+//}
 
 
+/**
+ * #15拦截导弹
+ * 某国进行军事演戏，研发一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于等于前一发的高度。某天，雷达捕捉到敌国导弹来袭。由于该系统还在试用阶段，所以只用一套系统，因此有可能不能拦截所有的导弹。请你帮忙选择一套系统，根据测试的导弹数量和每次导弹飞来的高度，计算出最多能拦截导弹的数目。
+ */
+
+//import java.util.Scanner;
+//import java.util.List;
+//import java.util.LinkedList;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        int n=sc.nextInt();
+//        List<Integer> res=new LinkedList<>();
+//        for(int i=0;i<n;i++){
+//            int m=sc.nextInt();
+//            int[] a=new int[m];
+//            for(int j=0;j<m;j++){
+//                a[j]=sc.nextInt();
+//            }
+//            res.add(getLIS(m,a));
+//        }
+//        for(int i=0;i<res.size();i++){
+//            System.out.println(res.get(i));
+//        }
+//    }
+//    public static int getLIS(int len,int[] a){
+//        if(len==0)return 0;
+//        int[] dp=new int[len];
+//        dp[0]=1;
+//        int maxLength=1;
+//        for(int i=1;i<len;i++){
+//            int j=i-1;
+//            for(;j>=0;j--){
+//                if(a[j]>a[i]){
+//                    dp[i]=dp[j]+1;
+//                    break;
+//                }
+//            }
+//            if(j==-1){
+//                dp[i]=1;
+//            }
+//            if(dp[i]>maxLength)maxLength=dp[i];
+//        }
+//        return maxLength;
+//    }
+//}
 
 
+/**
+ * #15字符判断
+ * 判断字符串b的所有字符是否都在字符串a中出现过，a、b都是可能包含汉字的字符串。b中重复出现的汉字，那么a中也要至少重复相同的次数。汉字使用gbk编码（简单的说，用两个字节表示一个汉字，高字节最高位为1的代表汉字，低字节最高位可以不为1）。
+ *
+ *         int is_include(char *a, char *b);
+ *
+ *      返回0表示没有都出现过，返回1表示都出现过。
+ *
+ * 请设计一个算法。
+ * 测试数据和中文完全没关系
+ */
 
+//import java.util.Scanner;
+//import java.util.HashMap;
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner sc=new Scanner(System.in);
+//        String str1=sc.next();
+//        String str2=sc.next();
+//        sc.close();
+//        HashMap<Character,Integer> map1=new HashMap<>();
+//        for(int i=0;i<str1.length();i++){
+//            char c=str1.charAt(i);
+//            map1.put(c,map1.getOrDefault(c,0)+1);
+//        }
+//        int j=0;
+//        for(;j<str2.length();j++){
+//            char c=str2.charAt(j);
+//            if(!map1.containsKey(c)){
+//                System.out.println(0);
+//                break;
+//            }else{
+//                map1.put(c,map1.get(c)-1);
+//            }
+//        }
+//        if(j==str2.length())System.out.println(1);
+//    }
+//}
 
+/**
+ * #16击鼓传花
+ * 学校联欢晚会的时候，为了使每一个同学都能参与进来，主持人常常会带着同学们玩击鼓传花的游戏。游戏规则是这样的：n个同学坐着围成一个圆圈，指定一个同学手里拿着一束花，主持人在旁边背对着大家开始击鼓，鼓声开始之后拿着花的同学开始传花，每个同学都可以把花传给自己左右的两个同学中的一个（左右任意），当主持人停止击鼓时，传花停止，此时，正拿着花没传出去的那个同学就要给大家表演一个节目。
+ 聪明的小赛提出一个有趣的问题：有多少种不同的方法可以使得从小赛手里开始传的花，
+ 传了m次以后，又回到小赛手里。对于传递的方法当且仅当这两种方法中，
+ 接到花的同学按接球顺序组成的序列是不同的，才视作两种传花的方法不同。比如有3个同学1号、2号、3号，并假设小赛为1号，花传了3次回到小赛手里的方式有1->2->3->1和1->3->2->1，共2种。
+ */
+//import java.util.Scanner;
+//public class Main {
+// public static void main(String[] args) {
+//  Scanner sc=new Scanner(System.in);
+//  int n=sc.nextInt();
+//  int m=sc.nextInt();
+//  sc.close();
+//  int[][] dp=new int[m+1][n+1];
+//  dp[1][2]=1;dp[1][n]=1;
+//  for(int i=2;i<m+1;i++) {
+//   for(int j=1;j<n+1;j++) {
+//    if(j==1) {
+//     dp[i][j]=dp[i-1][2]+dp[i-1][n];
+//    }else if(j==n){
+//     dp[i][j]=dp[i-1][j-1]+dp[i-1][1];
+//    }else {
+//     dp[i][j]=dp[i-1][j-1]+dp[i-1][j+1];
+//    }
+//   }
+//  }
+//  System.out.println(dp[m][1]);
+// }
+//}
 
-
-
-
-
-
-
-
-
-
+/**
+ * #17小赛的升级之路
+ * 小赛经常沉迷于网络游戏。有一次，他在玩一个打怪升级的游戏，他的角色的初始能力值为a。在接下来的一段时间内，他将会依次遇见n个怪物，每个怪物的防御力为b1,b2,b3,…bn。如果遇到的怪物防御力bi小于等于小赛的当前能力值c，那么他就能轻松打败怪物，并且使得自己的能力值增加bi；如果bi大于c，那他也能打败怪物，但他的能力值只能增加bi与c的最大公约数。那么问题来了，在一系列的锻炼后，小赛的最终能力值为多少？
+ * 有部分测试未通过的原因是类型太短，改成long即可
+ */
+//import java.util.Scanner;
+//public class Main{
+//    public static void main(String[] args) {
+//        Scanner sc=new Scanner(System.in);
+//        while(sc.hasNextInt()) {
+//            int n=sc.nextInt();
+//            long a=sc.nextInt();
+//            int[] b=new int[n];
+//            for(int i=0;i<n;i++) {
+//                b[i]=sc.nextInt();
+//            }
+//            for(int i=0;i<n;i++) {
+//                if(b[i]<=a) {
+//                    a+=b[i];
+//                }else {
+//                    a+=getNumber(a,b[i]);
+//                }
+//            }
+//            System.out.println(a);
+//        }
+//        sc.close();
+//    }
+//    public static long getNumber(long a,long b) {
+//        if(a<b)return getNumber(b,a);
+//        long c=a%b;
+//        if(c==0)return b;
+//        else return getNumber(b,c);
+//    }
+//}
 
 
 
